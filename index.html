@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Age calculator app</title>
+
+  <style>
+
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+    .container{
+      width: 100%;
+      height: 100vh;
+      height: calc(100vh - 50px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: hsl(0, 0%, 94%);
+    }
+    .content{
+      width: 550px;
+      height: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      background-color: hsl(0, 0%, 100%);
+      padding: 40px;
+      border-radius: 20px;
+      border-bottom-right-radius: 150px;  
+    }
+    p{
+      font-size: 12px;
+      color: hsl(0, 1%, 44%);
+      font-weight: 900;
+    }
+    .empty p{
+      color: hsl(0, 100%, 67%);
+    }
+    span{
+     font-size: 50px;
+     text-align: center;
+    color: hsl(259, 100%, 65%);
+    padding-right: 10px;
+    font-family: sans-serif;
+    font-weight: 800;
+    }
+    h1{  
+      font-size: 50px;
+      font-weight: 800;
+      color: hsl(0, 0%, 8%);
+    }
+    .flex{
+      display: flex;  
+    }
+    .item-center{
+      align-items: center;
+    }
+    .flexs{
+      display: flex;
+      flex-direction: column;    
+    }
+    input{
+      width: 120px;
+      height: 50px;
+      padding: 10px;
+      font-size: 30px;
+      border: 1px solid hsl(0, 0%, 94%);
+      font-weight: 700;
+      font-family: sans-serif;
+      margin: 10px 0;
+      cursor: pointer;
+    }
+    .error input{
+      border: 1px solid hsl(0, 100%, 67%);
+    }
+    .success input{
+      border: 1px solid rgb(7, 253, 7);
+    }
+    input:focus{
+      outline: none;
+      border: 1px solid hsl(0, 0%, 86%);   
+    }
+    .input-fields{
+      gap: 20px;
+    }
+    .line::before{
+      content: '';
+      width: 100%;
+      height: 1px;
+      background-color: hsl(0, 0%, 86%);
+    }
+    .small{
+      font-size: 12px;
+      font-style: italic;
+      display: none;
+    }
+     .error .small{
+      display: block;
+      color: hsl(0, 100%, 67%);
+    }
+    img{
+      padding: 10px;
+      background-color: hsl(259, 100%, 65%);
+      border-radius: 50%;
+      cursor: pointer;  
+    }
+    img:hover{
+      background-color: hsl(0, 0%, 8%);
+    }
+    .line{
+      justify-content: space-between;
+      align-items: center;
+    }
+    .btn{
+      border: none;
+      background-color: transparent;
+    }
+
+    footer{
+      text-align: center;
+    }
+    footer h3{
+      font-size: 16px;  
+    }
+    b{
+      color: hsl(259, 100%, 65%);
+      font-size: 20px;
+    }
+
+    @media(max-width:430px){
+      .container{
+        padding: 10px;
+      }
+      .content{
+        width: 100%;
+        padding: 20px;
+        border-bottom-right-radius: 100px;
+      }
+      .input-fields{
+        gap: 10px;
+      }
+      input{
+        width: 100px;   
+      }
+      .line::after{
+      content: '';
+      width: 100%;
+      height: 1px;
+      background-color: hsl(0, 0%, 86%);
+    }
+
+    }
+
+    @media(max-width:375px){
+      footer h3{
+        font-size: 14px;
+      }
+      b{
+      font-size: 18px;
+      display: flex;
+      justify-content: center;
+      align-content: center;
+      }
+    }
+
+    @media(max-width:350px){
+
+      input{
+      width: 80px;
+      padding: 5px;
+      font-size: 25px;
+      font-weight: 700;
+      }
+      footer h3{
+      font-size: 14px;
+       
+      }
+      b{
+      font-size: 16px;
+      }
+    }
+
+    @media(max-width:300px){
+      .container{
+      height: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="content">
+      <form action="">
+         <div class="input-fields flex ">
+        <div class="flexs input-fields1">
+          <div class="input-control">
+        <p> DAY</p>
+        <input type="number" class="day" placeholder="DD">
+        <p class="small">This Field is required</p>
+      </div>
+         </div>
+       
+       
+         <div class="flexs input-fields2">
+          <div class="input-control">
+          <p> MONTHS</p>
+          <input type="number" class="month" placeholder="MM">
+          <p class="small">This Field is required</p>
+           </div>
+          </div>
+       
+       
+           <div class="flexs input-fields3">
+            <div class="input-control">
+            <p> YEAR</p>
+            <input type="number" class="year" placeholder="YYY">
+            <p class="small">This Field is required</p>
+             </div>
+            </div>
+
+            </div>
+       <div class="line flex"> 
+      <button class="btn" type="submit"> <img src="assets/images/icon-arrow.svg" class="icon"> </button> 
+       </div>
+      </form>
+
+       <div class="restults">
+        <div class="flex item-center">
+        <span class="year-result">- -</span>
+        <h1> years</h1>
+      </div>
+      <div class="flex item-center">
+        <span class="month-result">- -</span>
+        <h1> months</h1>
+      </div>
+      <div class="flex item-center">
+        <span class="day-result">- -</span>
+        <h1> days</h1>
+      </div>
+       </div>
+    </div>
+  </div>
+
+  <footer>
+      <h3>Design By <b>Shahnawaz Quraishi</b></h3>
+  </footer>
+
+
+  <script>
+    const form = document.querySelector('form');
+    const inputDay = document.querySelector('.day');
+    const inputMonth = document.querySelector('.month');
+    const inputYear = document.querySelector('.year');
+    let yearResult = document.querySelector('.year-result');
+    let monthResult = document.querySelector('.month-result');
+    let dayResult = document.querySelector('.day-result');
+
+  // form submit to check validation
+     form.addEventListener('submit', (e) =>{
+      e.preventDefault();
+
+      validate();
+     })
+
+    //  send data show value
+     const sendData = (sRate,count,inputDayVal,inputMonthVal,inputYearVal) =>{
+        if(sRate === count){
+     let date = new Date();
+     let currDay = date.getDate();
+     let currMonth = date.getMonth()+1;
+     let currYear = date.getFullYear();
+
+     if(currDay < inputDayVal){
+      dayResult.innerHTML = currDay - inputDayVal  + 31;
+      monthResult.innerHTML = currMonth - inputMonthVal  + 11 ;
+      yearResult.innerHTML = currYear - inputYearVal - 1;
+     }
+
+    else if(currMonth < inputMonthVal){
+      monthResult.innerHTML = currMonth - inputMonthVal + 12;
+      yearResult.innerHTML = currYear - inputYearVal - 1;
+      dayResult.innerHTML = currDay - inputDayVal;
+     }else{
+      monthResult.innerHTML = currMonth - inputMonthVal;
+      yearResult.innerHTML = currYear - inputYearVal;
+      dayResult.innerHTML = currDay - inputDayVal;
+     }
+
+        // after show value input empty
+        const input = document.getElementsByTagName('input');
+        for(let i = 0; i < input.length; i++){
+          input[i].value = "";
+        }
+
+        // after show value input border remove success
+        const inputSuccess = document.getElementsByClassName('input-control');
+        for(let j = 0; j < inputSuccess.length; j++){
+          inputSuccess[j].classList.remove('success');
+        }
+
+        }
+
+     }
+
+    //  compare all field are success
+     const successMsgFun = (inputDayVal,inputMonthVal,inputYearVal) =>{
+      const inputCon = document.getElementsByClassName('input-control');
+      // console.log(inputCon);
+      var count = inputCon.length - 1;
+      // console.log(count);
+      for(let i = 0; i < inputCon.length; i++){
+        // console.log(inputCon[i]);
+        if(inputCon[i].className === "input-control success"){
+          var sRate = 0 + i;
+          // console.log(sRate)
+          sendData(sRate,count,inputDayVal,inputMonthVal,inputYearVal);
+        }else{
+          return false;
+        }
+       
+      }
+     }
+
+    //  handle error
+     const setError = (element,message) => {
+       const inputControl = element.parentElement;
+       const small = inputControl.querySelector('.small');
+
+       inputControl.classList.add('error');
+       inputControl.classList.remove('success');
+       small.innerText = message;
+     }
+
+    //  handle success
+     const setSuccess = (element) => {
+       const inputControl = element.parentElement;
+
+       inputControl.classList.add('success');
+       inputControl.classList.remove('error');
+     }
+
+    //  check validation
+     const validate = () => {
+      const inputDayVal = inputDay.value;
+      const inputMonthVal = inputMonth.value;
+      const inputYearVal = inputYear.value;
+      const dates = new Date();
+
+      if(inputDayVal === ""){
+        setError(inputDay, "Cant't blank");
+      }else if(inputDayVal.length > 2){
+        setError(inputDay, "enter a valid day")
+      }else if(inputDayVal == 0 || inputDayVal > 31){
+        setError(inputDay, "invalid day");
+      }
+      else{
+        setSuccess(inputDay);
+      }
+
+      if(inputMonthVal === ""){
+        setError(inputMonth, "Cant't blank");
+      }else if(inputMonthVal.length > 2){
+        setError(inputMonth, "enter a valid month")
+      }else if(inputMonthVal == 0 || inputMonthVal > 12){
+        setError(inputMonth, "invalid month");
+      }
+      else{
+        setSuccess(inputMonth);
+      }
+
+      if(inputYearVal === ""){
+        setError(inputYear, "Cant't blank");
+      }else if(inputYearVal.length < 4){
+        setError(inputYear, "please enter full year");
+      }else if(inputYearVal.length > 4){
+        setError(inputYear, "please enter only 4 character");
+      }else if(inputYearVal == 0){
+         setError(inputYear, "invalid year")
+      }
+      else if(inputYearVal > dates.getFullYear()){
+        setError(inputYear, "enter a valid year")
+      }
+      else{
+        setSuccess(inputYear);
+      }
+
+      successMsgFun(inputDayVal,inputMonthVal,inputYearVal);
+
+     }
+  </script>
+</body>
+</html>
